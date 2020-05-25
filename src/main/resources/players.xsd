@@ -20,8 +20,7 @@
     <xs:element name="savePlayerRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="id" type="xs:long"/>
-                <xs:element name="level" type="xs:integer"/>
+                <xs:element name="level" type="xs:int"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>

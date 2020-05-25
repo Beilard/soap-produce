@@ -46,7 +46,8 @@ public class PlayerEndpoint {
         ObjectFactory objectFactory = new ObjectFactory();
         SavePlayerResponse response = objectFactory.createSavePlayerResponse();
 
-        Player createdPlayer  = new Player(request.getId(), request.getLevel().intValue());
+        Player createdPlayer  = new Player();
+        createdPlayer.setLevel(request.getLevel());
 
         response.setId(playerRepository.save(createdPlayer).getId());
         return response;
