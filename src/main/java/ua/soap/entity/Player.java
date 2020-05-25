@@ -1,9 +1,15 @@
 package ua.soap.entity;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Player {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private Long id;
+    @Column(name = "level", nullable = false)
     private Integer level;
 
     public Player() {
