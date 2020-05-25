@@ -8,6 +8,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import ua.soap.GetPlayerRequest;
 import ua.soap.GetPlayerResponse;
 import ua.soap.ObjectFactory;
+import ua.soap.SavePlayerResponse;
 import ua.soap.entity.Player;
 import ua.soap.repository.PlayerRepository;
 
@@ -41,4 +42,13 @@ public class PlayerEndpoint {
         return response;
     }
 
+    public SavePlayerResponse savePlayer(@RequestPayload ua.soap.SavePlayerRequest request) {
+        ObjectFactory objectFactory = new ObjectFactory();
+        SavePlayerResponse response = objectFactory.createSavePlayerResponse();
+
+        Player createdPlayer  = new Player(request.getId(), request.getLevel().intValue());
+
+        response.setId(playerRepository.save(createdPlayer).getId());
+        return response;
+    }
 }

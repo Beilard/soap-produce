@@ -21,6 +21,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="id" type="xs:long"/>
+                <xs:element name="level" type="xs:integer"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
